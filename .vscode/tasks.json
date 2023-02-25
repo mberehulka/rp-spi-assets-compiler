@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "A",
-            "command": "bash -c 'cargo run --release && cp -r compiled/. ../rp-spi-tft/examples/src/assets/ && cd ../rp-spi-tft && cargo run --example display --release'",
+            "command": "bash -c 'cargo run --release && cp -r compiled/. ../rp-spi-tft/examples/src/assets/ && cd ../rp-spi-tft && cargo run --example terminal --release'",
             "type": "shell",
             "args": [],
             "presentation": {

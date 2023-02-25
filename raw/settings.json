@@ -1,7 +1,9 @@
 {
     "Fira Code Regular Nerd Font Complete.ttf": {
         "word_space": 3,
-        "line_space": -5
+        "line_space": -5,
+        "letters": "abcdefghijklmnopqrstuvxywzABCDEFGHIJKLMNOPQRSTUVXYWZ0123456789!@#$&%*,.;:?-+()_={}[]<>^\\|/\"'°",
+        "font_size": 10
     },
     "naruto_jiraya.gif": {
         "max_frames": 50

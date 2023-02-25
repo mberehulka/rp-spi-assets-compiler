@@ -6,6 +6,7 @@ use crate::create_file;
 
 fn _default_font_size() -> f32 { 10. }
 fn _zero() -> i32 { 0 }
+fn _empty_string() -> String { String::new() }
 
 #[derive(Deserialize)]
 pub struct Settings {
@@ -18,7 +19,9 @@ pub struct Settings {
     #[serde(default = "_zero")]
     line_space: i32,
     #[serde(default = "_zero")]
-    word_space: i32
+    word_space: i32,
+    #[serde(default = "_empty_string")]
+    letters: String
 }
 
 pub fn read(path: impl AsRef<Path>, settings: &serde_json::Value) {
@@ -41,14 +44,7 @@ pub fn read(path: impl AsRef<Path>, settings: &serde_json::Value) {
     line_height: {},
     data: |c| match c {{", line_height).as_bytes()).unwrap();
     
-    for c in [
-        "abcdefghijklmnopqrstuvxywz",
-        "ABCDEFGHIJKLMNOPQRSTUVXYWZ",
-        "0123456789",
-        "!@#$&%*,.;:?-+",
-        // "()_={}[]<>^\\|/\"'",
-        // "°¹²³∛√∜∫×≠±⋜⋝ƒ∑∞"
-    ].join("").chars() {
+    for c in settings.letters.chars() {
         let (metrics, bitmap) = font.rasterize(c, settings.font_size);
         let letter_width = metrics.width;
 
